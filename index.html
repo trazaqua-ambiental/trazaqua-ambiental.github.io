@@ -3,56 +3,432 @@
 <meta name="description" content="TRAZAQUA: consultoría ambiental, monitoreo de campo, informes técnicos, drones y geoinformación en Huancayo y Junín.">
 <meta name="theme-color" content="#087f68"><title>TRAZAQUA | Consultoría Ambiental</title>
 <style>
-/* IDENTIDAD VISUAL TRAZAQUA */
+
+/* IDENTIDAD CORPORATIVA TRAZAQUA */
+:root {
+  --green: #087f68;
+  --green-dark: #056653;
+  --blue: #123e50;
+  --ink: #18313a;
+  --muted: #60747b;
+  --pale: #edf7f4;
+  --line: #dce9e5;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrap {
+  width: min(1160px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* CABECERA */
+header {
+  background: rgba(255,255,255,.97);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  z-index: 10;
+}
+
 header .nav {
-    min-height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    overflow: visible;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .brand {
-    display: flex;
-    align-items: center;
-    flex: 0 1 420px;
-    min-width: 0;
+  display: flex;
+  align-items: center;
+  flex: 0 1 420px;
+  min-width: 0;
 }
 
 .brand img {
-    display: block !important;
-    width: 100% !important;
-    max-width: 420px !important;
-    height: 82px !important;
-    max-height: 82px !important;
-    object-fit: contain;
-    object-position: left center;
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: 82px;
+  object-fit: contain;
+  object-position: left center;
 }
 
-/* MENU DE NAVEGACION */
 header nav {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-shrink: 0;
 }
 
-/* VERSION MOVIL */
-@media (max-width: 768px) {
-    header .nav {
-        min-height: 75px;
-        gap: 8px;
-    }
+header nav a {
+  color: #405965;
+  font-size: 14px;
+}
 
-    .brand {
-        flex-basis: 210px;
-    }
+header nav a:hover {
+  color: var(--green);
+}
 
-    .brand img {
-        height: 58px !important;
-        max-height: 58px !important;
-    }
+/* BOTONES */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--green);
+  color: white;
+  padding: 13px 20px;
+  border-radius: 9px;
+  font-weight: 700;
+  border: 1px solid var(--green);
+}
+
+.btn:hover {
+  background: var(--green-dark);
+}
+
+.btn.alt {
+  background: transparent;
+  color: var(--blue);
+  border-color: #a9c6bd;
+}
+
+/* PORTADA */
+.hero {
+  background:
+    radial-gradient(circle at 82% 20%, #cce9e2, transparent 40%),
+    linear-gradient(120deg, #f4faf8, #e8f5f2);
+  padding: 76px 0;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.eyebrow {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  color: var(--blue);
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+  margin: 18px 0;
+}
+
+.hero h1 span {
+  color: var(--green);
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 17px;
+  max-width: 590px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.art {
+  min-height: 330px;
+  border-radius: 26px;
+  background: linear-gradient(135deg, #174e5b, #07836b);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  box-shadow: 0 24px 50px rgba(18,62,80,.15);
+}
+
+.art em {
+  font-size: 13px;
+  font-style: normal;
+  letter-spacing: 2px;
+}
+
+.art small {
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+/* SECCIONES */
+section {
+  padding: 65px 0;
+}
+
+.head {
+  margin-bottom: 30px;
+}
+
+.head h2 {
+  color: var(--blue);
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 8px 0;
+}
+
+.head p {
+  color: var(--muted);
+}
+
+/* SERVICIOS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(18,62,80,.05);
+}
+
+.card h3 {
+  color: var(--blue);
+  margin: 12px 0 8px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.ico {
+  font-size: 27px;
+}
+
+/* NOSOTROS */
+.about {
+  background: var(--pale);
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.panel,
+.note {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 28px;
+}
+
+.panel strong {
+  display: block;
+  color: var(--blue);
+  font-size: 24px;
+  margin: 12px 0;
+}
+
+.ticks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.ticks span,
+.pills span {
+  background: white;
+  border: 1px solid var(--line);
+  padding: 8px 13px;
+  border-radius: 30px;
+  font-size: 13px;
+}
+
+/* SECTORES */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* PROCESO */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.step {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: white;
+}
+
+.step b {
+  color: var(--green);
+  font-size: 13px;
+}
+
+/* CONTACTO */
+.contact {
+  background: var(--blue);
+  color: white;
+}
+
+.contact .head h2,
+.contact .head p {
+  color: white;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.contactBox {
+  background: white;
+  color: var(--ink);
+  padding: 25px;
+  border-radius: 16px;
+}
+
+.line {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.disclaimer {
+  font-size: 12px;
+  opacity: .85;
+  margin-top: 22px;
+}
+
+/* PIE DE PÁGINA */
+footer {
+  background: #102f3b;
+  color: white;
+  padding: 25px 0;
+}
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 13px;
+}
+
+.wa {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 20;
+  background: #16b96b;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 35px;
+  font-weight: 700;
+  box-shadow: 0 5px 20px rgba(0,0,0,.15);
+}
+
+/* ADAPTACIÓN RESPONSIVE */
+@media (max-width: 900px) {
+  .heroGrid,
+  .aboutGrid,
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero {
+    padding: 55px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrap {
+    width: calc(100% - 32px);
+  }
+
+  header .nav {
+    flex-direction: column;
+    padding: 12px 0;
+  }
+
+  .brand {
+    flex: none;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .brand img {
+    height: 65px;
+    max-width: 100%;
+  }
+
+  header nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .cards,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .art {
+    min-height: 240px;
+  }
+
+  section {
+    padding: 45px 0;
+  }
+}
+
 }</style>
 }</head><body>
 <header><div class="wrap nav"><a class="brand" href="#inicio">
